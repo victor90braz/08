@@ -29,5 +29,35 @@ class Age {
 
 $age = new Age(30);
 
-dd($age->increment());
+// dd($age->increment());
+
+
+// ----------------------------------------------------------
+
+class Coordinates {
+    public $x;
+    public $y;
+
+    function __construct($x, $y) {
+        $this->x = $x;
+        $this->y = $y;
+    }
+}
+
+function pin(Coordinates $coordinates) {
+    return [$coordinates->x, $coordinates->y];
+}
+
+function distances(Coordinates $begin, Coordinates $end) {
+    return [$begin->x, $end->y];
+}
+
+$coord1 = new Coordinates(10, 20);
+$coord2 = new Coordinates(30, 40);
+
+echo "Coordinates for coord1: ";
+print_r(pin($coord1));
+
+echo "Distances between coord1 and coord2: ";
+print_r(distances($coord1, $coord2));
 
