@@ -20,18 +20,14 @@ class Age {
 
     public function increment() {
 
-        $this->age += 1;
-    }
-
-    public function get() {
-        return $this->age;
+        return new self($this->age + 1);
     }
 
 }
 
-$age = new Age(35);
-$age->increment();
-dd($age->get());
+$age = new Age(30);
+
+dd($age->increment());
 
 /*
 function register(string $name, Age $age) {}
