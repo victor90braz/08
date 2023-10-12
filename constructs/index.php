@@ -6,6 +6,7 @@ require_once $basePath . "functions.php";
 // value objects and mutability
 // avoid primitive obsession - and readibility
 // helps with consistency
+// immutable
 
 class Age {
 
