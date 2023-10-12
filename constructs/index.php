@@ -5,16 +5,36 @@ require_once $basePath . "functions.php";
 
 // value objects and mutability
 
+class Age {
 
-function register(string $name, int $age) {
+    private $age;
 
-    if ($age < 0) {
-        dd("Is not allowed $age");
+    public function __construct($age) {
+
+        if ($age < 0 || $age > 150) {
+            throw new InvalidArgumentException('"That makes no sense!!"');
+        }
+
+        $this->age = $age;
     }
 
-    return "$name $age";
+    public function increment() {
+
+        $this->age += 1;
+    }
+
+    public function get() {
+        return $this->age;
+    }
+
 }
 
-$person = register('bob', -34);
+$age = new Age(35);
+$age->increment();
+dd($age->get());
 
-dd($person);
+/*
+function register(string $name, Age $age) {}
+
+register('John Doe', $age);
+*/
